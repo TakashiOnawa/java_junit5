@@ -36,6 +36,6 @@ public class ClosedRange {
 
     @Override
     public String toString() {
-        return "[" + String.valueOf(lowerEndpoint) + "," + String.valueOf(upperEndpoint) + "]";
+        return  "[" + lowerEndpoint + "," + upperEndpoint + "]";
     }
 }

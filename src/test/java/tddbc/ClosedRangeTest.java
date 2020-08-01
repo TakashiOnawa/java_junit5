@@ -89,10 +89,13 @@ public class ClosedRangeTest {
         }
     }
 
-    @Test
-    public void 下端点が1で上端点が2の閉区間オブジェクトは文字列表現を返す() {
-        ClosedRange closedRange = new ClosedRange(1, 2);
-        // 実行、検証
-        assertEquals("[1,2]", closedRange.toString());
+    @Nested
+    public class 整数閉区間オブジェクトは文字列表現を返せる {
+        @Test
+        public void 下端点が1で上端点が2の閉区間オブジェクトは文字列表現を返す() {
+            ClosedRange closedRange = new ClosedRange(1, 2);
+            // 実行、検証
+            assertEquals("[1,2]", closedRange.toString());
+        }
     }
 }
