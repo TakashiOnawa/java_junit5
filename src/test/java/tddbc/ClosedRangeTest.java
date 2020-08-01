@@ -106,4 +106,28 @@ public class ClosedRangeTest {
         // 実行、検証
         assertTrue(closedRange.in(new ClosedRange(2, 3)));
     }
+
+    @Test
+    public void 下端点が1で上端点が4の閉区間オブジェクトは下端点が1で上端点が4の閉区間オブジェクトを含む() {
+        // 準備
+        ClosedRange closedRange = new ClosedRange(1, 4);
+        // 実行、検証
+        assertTrue(closedRange.in(new ClosedRange(1, 4)));
+    }
+
+    @Test
+    public void 下端点が1で上端点が4の閉区間オブジェクトは下端点が0で上端点が4の閉区間オブジェクトを含まない() {
+        // 準備
+        ClosedRange closedRange = new ClosedRange(1, 4);
+        // 実行、検証
+        assertFalse(closedRange.in(new ClosedRange(0, 4)));
+    }
+
+    @Test
+    public void 下端点が1で上端点が4の閉区間オブジェクトは下端点が1で上端点が5の閉区間オブジェクトを含まない() {
+        // 準備
+        ClosedRange closedRange = new ClosedRange(1, 4);
+        // 実行、検証
+        assertFalse(closedRange.in(new ClosedRange(0, 5)));
+    }
 }

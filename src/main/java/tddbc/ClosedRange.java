@@ -21,7 +21,8 @@ public class ClosedRange {
     }
 
     public boolean in(ClosedRange other) {
-        return true;
+        return this.in(other.lowerEndpoint) &&
+                this.in(other.upperEndpoint);
     }
 
     @Override
