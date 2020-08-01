@@ -1,23 +1,32 @@
 package tddbc;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ClosedRangeTest {
 
-    @Test
-    public void 上端点が1で下端点が1の閉区間オブジェクトは生成できる() {
-        ClosedRange actual = new ClosedRange(1, 1);
-        // 検証
-        assertNotNull(actual);
-    }
+    @Nested
+    public class 整数閉区間オブジェクトは下端点が上端点以下の閉区間を作ることができる {
+        @Test
+        public void 下端点が1で上端点が1の閉区間オブジェクトは生成できる() {
+            // 実行、検証
+            assertNotNull(new ClosedRange(1, 1));
+        }
 
-    @Test
-    public  void 上端点が1で下端点が2の閉区間オブジェクトは生成できない() {
-        // 検証
-        assertThrows(IllegalArgumentException.class, () -> {
-            new ClosedRange(2, 1);
-        });
+        @Test
+        public void 下端点が1で上端点が2の閉区間オブジェクトは生成できる() {
+            // 実行、検証
+            assertNotNull(new ClosedRange(1, 2));
+        }
+
+        @Test
+        public  void 下端点が2で上端点が1の閉区間オブジェクトは生成できない() {
+            // 実行、検証
+            assertThrows(IllegalArgumentException.class, () -> {
+                new ClosedRange(2, 1);
+            });
+        }
     }
 }
