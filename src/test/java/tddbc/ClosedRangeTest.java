@@ -2,15 +2,21 @@ package tddbc;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ClosedRangeTest {
 
     @Test
     public void 上端点が1で下端点が1の閉区間オブジェクトは生成できる() {
+        ClosedRange actual = new ClosedRange(1, 1);
+        // 検証
+        assertNotNull(actual);
+    }
 
-        ClosedRange actual;
-        assertNotNull(acutal);
+    @Test
+    public  void 上端点が1で下端点が2の閉区間オブジェクトは生成できない() {
+        ClosedRange actual = new ClosedRange(2, 1);
+        // 検証
+        assertNull(actual);
     }
 }
