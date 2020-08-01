@@ -29,4 +29,12 @@ public class ClosedRangeTest {
             });
         }
     }
+
+    @Test
+    public void 下端点が1で上端点が2の閉区間オブジェクトは0を含まない() {
+        // 準備
+        ClosedRange closedRange = new ClosedRange(1, 2);
+        // 実行、検証
+        assertFalse(closedRange.in(0));
+    }
 }

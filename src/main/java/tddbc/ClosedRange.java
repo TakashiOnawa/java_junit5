@@ -13,4 +13,8 @@ public class ClosedRange {
         this.lowerEndpoint = lowerEndpoint;
         this.upperEndpoint = upperEndpoint;
     }
+
+    public boolean in(int i) {
+        return false;
+    }
 }
