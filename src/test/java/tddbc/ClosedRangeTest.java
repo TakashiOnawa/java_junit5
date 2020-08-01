@@ -15,8 +15,9 @@ public class ClosedRangeTest {
 
     @Test
     public  void 上端点が1で下端点が2の閉区間オブジェクトは生成できない() {
-        ClosedRange actual = new ClosedRange(2, 1);
         // 検証
-        assertNull(actual);
+        assertThrows(IllegalArgumentException.class, () -> {
+            new ClosedRange(2, 1);
+        });
     }
 }
