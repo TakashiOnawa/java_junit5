@@ -98,4 +98,12 @@ public class ClosedRangeTest {
             assertEquals("[1,2]", closedRange.toString());
         }
     }
+
+    @Test
+    public void 下端点が1で上端点が4の閉区間オブジェクトは下端点が2で上端点が3の閉区間オブジェクトを含む() {
+        // 準備
+        ClosedRange closedRange = new ClosedRange(1, 4);
+        // 実行、検証
+        assertTrue(closedRange.in(new ClosedRange(2, 3)));
+    }
 }

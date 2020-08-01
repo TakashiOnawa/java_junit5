@@ -20,6 +20,10 @@ public class ClosedRange {
         return value >= lowerEndpoint && value <= upperEndpoint;
     }
 
+    public boolean in(ClosedRange other) {
+        return true;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
