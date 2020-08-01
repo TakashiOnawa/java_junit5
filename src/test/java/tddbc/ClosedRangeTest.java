@@ -37,4 +37,12 @@ public class ClosedRangeTest {
         // 実行、検証
         assertFalse(closedRange.in(0));
     }
+
+    @Test
+    public void 下端点が1で上端点が2の閉区間オブジェクトは1を含む() {
+        // 準備
+        ClosedRange closedRange = new ClosedRange(1, 2);
+        // 実行、検証
+        assertTrue(closedRange.in(1));
+    }
 }

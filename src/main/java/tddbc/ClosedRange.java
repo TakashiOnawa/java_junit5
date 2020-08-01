@@ -15,6 +15,6 @@ public class ClosedRange {
     }
 
     public boolean in(int i) {
-        return false;
+        return i >= lowerEndpoint && i <= upperEndpoint;
     }
 }
