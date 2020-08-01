@@ -65,4 +65,10 @@ public class ClosedRangeTest {
             assertFalse(closedRange.in(3));
         }
     }
+
+    @Test
+    public void 下端点が1で上端点が2の閉区間オブジェクトは下端点が1で上端点が2の閉区間オブジェクトと等価である() {
+        // 検証
+        assertTrue(closedRange.equals(otherClosedRange));
+    }
 }
