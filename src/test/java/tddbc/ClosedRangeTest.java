@@ -1,5 +1,7 @@
 package tddbc;
 
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -30,19 +32,44 @@ public class ClosedRangeTest {
         }
     }
 
-    @Test
-    public void 下端点が1で上端点が2の閉区間オブジェクトは0を含まない() {
-        // 準備
-        ClosedRange closedRange = new ClosedRange(1, 2);
-        // 実行、検証
-        assertFalse(closedRange.in(0));
-    }
+    @Nested
+    public class 数閉区整間オブジェクトは指定した整数を含むかどうかを判定できる {
 
-    @Test
-    public void 下端点が1で上端点が2の閉区間オブジェクトは1を含む() {
-        // 準備
-        ClosedRange closedRange = new ClosedRange(1, 2);
-        // 実行、検証
-        assertTrue(closedRange.in(1));
+        @BeforeEach
+        public 前準備 () {
+
+        }
+
+        @Test
+        public void 下端点が1で上端点が2の閉区間オブジェクトは0を含まない() {
+            // 準備
+            ClosedRange closedRange = new ClosedRange(1, 2);
+            // 実行、検証
+            assertFalse(closedRange.in(0));
+        }
+
+        @Test
+        public void 下端点が1で上端点が2の閉区間オブジェクトは1を含む() {
+            // 準備
+            ClosedRange closedRange = new ClosedRange(1, 2);
+            // 実行、検証
+            assertTrue(closedRange.in(1));
+        }
+
+        @Test
+        public void 下端点が1で上端点が2の閉区間オブジェクトは2を含む() {
+            // 準備
+            ClosedRange closedRange = new ClosedRange(1, 2);
+            // 実行、検証
+            assertTrue(closedRange.in(2));
+        }
+
+        @Test
+        public void 下端点が1で上端点が2の閉区間オブジェクトは3を含まない() {
+            // 準備
+            ClosedRange closedRange = new ClosedRange(1, 2);
+            // 実行、検証
+            assertFalse(closedRange.in(3));
+        }
     }
 }

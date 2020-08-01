@@ -14,7 +14,7 @@ public class ClosedRange {
         this.upperEndpoint = upperEndpoint;
     }
 
-    public boolean in(int i) {
-        return i >= lowerEndpoint && i <= upperEndpoint;
+    public boolean in(int value) {
+        return value >= lowerEndpoint && value <= upperEndpoint;
     }
 }
