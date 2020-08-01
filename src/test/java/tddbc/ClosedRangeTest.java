@@ -66,23 +66,33 @@ public class ClosedRangeTest {
         }
     }
 
-    @Test
-    public void 下端点が1で上端点が2の閉区間オブジェクトは下端点が1で上端点が2の閉区間オブジェクトと等価である() {
-        // 準備
-        ClosedRange closedRange = new ClosedRange(1, 2);
-        ClosedRange otherClosedRange = new ClosedRange(1, 2);
+    @Nested
+    public class 整数閉区間オブジェクトは別の整数閉区間オブジェクトと等価かどうか判定できる {
 
-        // 実行、検証
-        assertTrue(closedRange.equals(otherClosedRange));
+        private ClosedRange closedRange;
+
+        @BeforeEach
+        public void beforeEach () {
+            closedRange = new ClosedRange(1, 2);
+        }
+
+        @Test
+        public void 下端点が1で上端点が2の閉区間オブジェクトは下端点が1で上端点が2の閉区間オブジェクトと等価である() {
+            // 実行、検証
+            assertTrue(closedRange.equals(new ClosedRange(1, 2)));
+        }
+
+        @Test
+        public void 下端点が1で上端点が2の閉区間オブジェクトは下端点が1で上端点が1の閉区間オブジェクトと等価ではない() {
+            // 実行、検証
+            assertFalse(closedRange.equals(new ClosedRange(1, 1)));
+        }
     }
 
     @Test
-    public void 下端点が1で上端点が2の閉区間オブジェクトは下端点が1で上端点が1の閉区間オブジェクトと等価ではない() {
-        // 準備
+    public void 下端点が1で上端点が2の閉区間オブジェクトは文字列表現を返す() {
         ClosedRange closedRange = new ClosedRange(1, 2);
-        ClosedRange otherClosedRange = new ClosedRange(1, 1);
-
         // 実行、検証
-        assertFalse(closedRange.equals(otherClosedRange));
+        assertEquals("[1,2]", closedRange.toString());
     }
 }

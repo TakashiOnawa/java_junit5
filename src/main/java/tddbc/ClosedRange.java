@@ -33,4 +33,9 @@ public class ClosedRange {
     public int hashCode() {
         return Objects.hash(lowerEndpoint, upperEndpoint);
     }
+
+    @Override
+    public String toString() {
+        return "[" + String.valueOf(lowerEndpoint) + "," + String.valueOf(upperEndpoint) + "]";
+    }
 }
